@@ -1,0 +1,22 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th = "https://www.thymeleaf.org">
+<head>
+    <title>Todo App</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<nav>
+    <div class="nav-left">
+        <span>APP for Jane</span>
+    </div>
+    <div class="nav-right">
+       <a th:href="@{/login}">Login</a>
+        <a th:href="@{/register}">Registration</a>
+    </div>
+</nav>
+<main>
+    <h1>You wanna plan your activities?</h1>
+    <p>Get organized with our todo app!</p>
+</main>
+</body>
+</html>

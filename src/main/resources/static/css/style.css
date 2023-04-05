@@ -1,0 +1,76 @@
+/* Set default styles for body and headings */
+body {
+    background-image: url("https://cdn-aekfi.nitrocdn.com/BhHUnZmQXkWPzBaLMaTftVhEvszyNTtP/assets/images/source/rev-b9d4954/blog/images/2018/07/best-time-tracking-apps.jpg.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-weight: bold;
+}
+
+/* Style the navigation bar */
+nav {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+}
+nav, a{
+    color: white;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+.nav-left {
+    font-weight: bold;
+}
+
+.nav-right {
+    display: flex;
+    gap: 1rem;
+}
+
+button {
+    background-color: #fff;
+    border: 1px solid #333;
+    color: #333;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+button:hover{
+    background: black;
+    color: white;
+    transition: all;
+}
+
+/* Style the main content */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 3rem);
+}
+
+h1 {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-size: 1.5rem;
+    text-align: center;
+    max-width: 600px;
+    margin: 0;
+}

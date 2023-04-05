@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Todo App - Register</title>
+  <link rel="stylesheet" th:href="@{/css/register.css}">
+</head>
+<body>
+<nav>
+  <div class="nav-left">
+    <span>APP for Jane</span>
+  </div>
+</nav>
+<main>
+  <h1>Create an account</h1>
+  <form:form th:action="@{/register}" method="post" th:object="${userDto}">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" th:field="*{userName}" placeholder="Enter Username" required>
+
+    <label for="email">Email:</label>
+    <form:input type="email" id="email" name="email" th:field="*{email}" placeholder="Enter Email" required>
+    <form:errors path="email" cssClass="error"/>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" th:field="*{password}" placeholder="Enter Password" required>
+
+    <button type="submit">Register</button>
+  </form:form>
+  <p>Already have an account? <a th:href="@{/login}">Login</a></p>
+</main>
+</body>
+</html>

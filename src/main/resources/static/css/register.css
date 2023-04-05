@@ -1,0 +1,101 @@
+/* Apply styles to the entire page */
+body {
+    background-image: url("https://cdn-aekfi.nitrocdn.com/BhHUnZmQXkWPzBaLMaTftVhEvszyNTtP/assets/images/source/rev-b9d4954/blog/images/2018/07/best-time-tracking-apps.jpg.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply styles to the navigation bar */
+nav {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-right a,
+.nav-right button {
+    margin-left: 1rem;
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.nav-right a:hover,
+.nav-right button:hover {
+    text-decoration: underline;
+}
+
+/* Apply styles to the main content */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+button[type="submit"] {
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+button[type="submit"]:hover {
+    background-color: #555;
+}
+
+p {
+    margin-top: 2rem;
+}
+
+p a {
+    color: #333;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
