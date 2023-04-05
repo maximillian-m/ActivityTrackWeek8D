@@ -7,4 +7,6 @@ public interface UserService {
     User registerUsers(UserDto userdto);
     boolean validateEmail(User user);
     User getUserByEmail(String email);
+    User loginUser(UserDto userdto);
+
 }

@@ -36,6 +36,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User loginUser(UserDto userdto) {
+        User user = DtoToModel.userDtoToUser(userdto);
+       User mainUser = userRepo.findEmailAndPassWord(user.getEmail(), user.getPassword());
+       if(mainUser != null){
+           return mainUser;
+       }
+        return null;
+    }
+
+    @Override
     public User registerUsers(UserDto userdto) {
         User user = DtoToModel.userDtoToUser(userdto);
         return userRepo.save(user);
