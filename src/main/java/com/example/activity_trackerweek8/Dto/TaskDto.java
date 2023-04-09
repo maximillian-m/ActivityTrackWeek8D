@@ -1,6 +1,7 @@
 package com.example.activity_trackerweek8.Dto;
 
 import com.example.activity_trackerweek8.Enums.Status;
+import com.example.activity_trackerweek8.Models.User;
 import jakarta.persistence.Column;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -29,4 +30,5 @@ public class TaskDto {
     private LocalDateTime updateAt;
 
     private LocalDateTime completed;
+    private User user;
 }

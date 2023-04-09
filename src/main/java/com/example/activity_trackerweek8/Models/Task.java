@@ -3,6 +3,7 @@ package com.example.activity_trackerweek8.Models;
 import com.example.activity_trackerweek8.Enums.Status;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -13,6 +14,7 @@ import java.time.LocalDateTime;
 import static jakarta.persistence.GenerationType.IDENTITY;
 
 @Entity
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -25,8 +27,8 @@ public class Task {
     @Column(columnDefinition = "TEXT")
     private String description;
     @Enumerated(EnumType.STRING)
-    @Column(columnDefinition = "VARCHAR(25) DEFAULT 'PENDING'")
-    private Status status;
+    @Column(length = 20)
+    private Status status = Status.PENDING;
     @CreationTimestamp
     private LocalDateTime createdAt;
     @UpdateTimestamp

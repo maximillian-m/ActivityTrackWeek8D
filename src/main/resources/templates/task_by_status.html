@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Activity Tracker</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <Title>View Task by Status</Title>
+</head>
+<body>
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <button class="btn btn-secondary">
+            <a th:href="@{/task/status}">Dashboard</a>
+        </button>
+    </div>
+</nav>
+<div class="content">
+    <section class="my-5">
+        <div class="container my-2">
+            <div>
+                <a th:href="@{/pendingTask}" class="btn btn-danger btn-sm mb-3">Pending</a>
+                <a th:href="@{/inProgressTask}" class="btn btn-warning btn-sm mb-3">InProgress</a>
+                <a th:href="@{/completedTask}" class="btn btn-success btn-sm mb-3">Completed</a>
+            </div>
+            <div class="card-header my-3">Pending Tasks</div>
+            <table border="1" class="table table-striped table-bordered">
+                <thead class = "table-primary">
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                    <th>Created Date</th>
+                    <th>Updated Date</th>
+                    <th>Completed Date</th>
+                    <th class="px-5"> Actions </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="task : ${lists}" >
+                    <td th:text="${task.getTitle()}">Title</td>
+                    <td th:text="${task.getDescription()}">Description</td>
+                    <td th:text="${task.getStatus()}">Status</td>
+                    <td th:text="${task.getCreatedAt()}">Created Data</td>
+                    <td th:text="${task.getUpdateAt()}">Updated Date</td>
+                    <td th:text="${task.getCompleted()}">Completed Data</td>
+                    <td>
+                        <a th:href="@{updateTask/{id}(id=${task.getTaskId()})}" class="text-info" data-mdb-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt me-3" ></i></a>
+                        <a th:href="@{/viewTask/{id}(id=${task.getTaskId()})}" class="text-info" data-toggle="popover" title="View"><i class="fa fa-eye me-3" aria-hidden="true"></i>
+                            <a th:href="@{/deleteTask/{id}(id=${task.getTaskId()})}" class="text-danger" data-mdb-toggle="tooltip" title="Delete"><i class="fas fa-trash-alt me-3"></i></a>
+                            <a th:href="@{/endTask/{id}(id=${task.getTaskId()})}" class="text-success" data-mdb-toggle="tooltip" title="status-update-forward me-3"><i class="far fa-arrow-alt-circle-right"></i></a>
+                            <a th:href="@{/startTask/{id}(id=${task.getTaskId()})}" class="text-warning" data-mdb-toggle="tooltip" title="status-update-backward me-3"><i class="far fa-arrow-alt-circle-left"></i></a>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="card-footer my-3">
+                <a th:href="@{/}"> Back</a>
+            </div>
+        </div>
+    </section>
+</div>
+</body>

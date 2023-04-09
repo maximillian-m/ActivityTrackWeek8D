@@ -21,6 +21,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User findUserById(UserDto userDto){
+        User user = userRepo.findById(userDto.getUserId()).get();
+        return user;
+    }
+
+    @Override
     public boolean validateEmail(User user) {
         for (User uk : userRepo.findAll()) {
             if (uk.getEmail().equals(user)) {
@@ -50,4 +56,6 @@ public class UserServiceImpl implements UserService {
         User user = DtoToModel.userDtoToUser(userdto);
         return userRepo.save(user);
     }
+
+
 }

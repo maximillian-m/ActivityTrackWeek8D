@@ -14,13 +14,13 @@
   <h1>Create an account</h1>
   <form th:action="@{/register}" method="post" th:object="${userDto}">
     <label for="username">Username:</label>
-    <input type="text" id="username" name="username" th:field="*{userName}" placeholder="Enter Username" required>
+    <input type="text" id="username" name="username" th:field="*{userName}" th:errorclass="is-invalid" placeholder="Enter Username">
     <p th:if="${#fields.hasErrors('userName')}" class="text-danger" th:errors="*{userName}" style="color: red"></p>
     <label for="email">Email:</label>
-    <input type="email" id="email" name="email" th:field="*{email}" placeholder="Enter Email" required>
+    <input type="email" id="email" name="email" th:field="*{email}" th:errorclass="is-invalid" placeholder="Enter Email">
     <p th:if="${#fields.hasErrors('email')}" class="text-danger" th:errors="*{email}" style="color: red"></p>
     <label for="password">Password:</label>
-    <input type="password" id="password" name="password" th:field="*{password}" placeholder="Enter Password" required>
+    <input type="password" id="password" name="password" th:field="*{password}" th:errorclass="is-invalid" placeholder="Enter Password">
     <p th:if="${#fields.hasErrors('password')}" class="text-danger" th:errors="*{password}" style="color: red"></p>
     <button type="submit">Register</button>
   </form>
