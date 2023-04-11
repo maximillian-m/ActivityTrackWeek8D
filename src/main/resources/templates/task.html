@@ -138,8 +138,21 @@
             </div>
           </td>
         </tr>
+
         </tbody>
       </table>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-sm-6">
+        <span th:if="${paging.totalPages > 0}" class="col-md-6 col-sm-6"
+              th:each="pageNumber : ${pageNumbers}">
+          <a th:href="@{/todoPage(size=${paging.size}, page=${pageNumber})}"
+             th:text="${pageNumber} + ' >>'"
+             th:class="${pageNumber== paging.number + 1} ? active"></a>
+        </span>
+        </div>
+    </div>
+</div>
     </div>
   </div>
 </div>

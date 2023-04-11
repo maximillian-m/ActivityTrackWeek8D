@@ -9,9 +9,13 @@ import com.example.activity_trackerweek8.Models.Task;
 import com.example.activity_trackerweek8.Repositories.TaskRepository;
 import com.example.activity_trackerweek8.Service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -104,5 +108,22 @@ public class TaskServiceImpl implements TaskService {
             return ModelToDto.taskDtoList(tasks);
         }
         throw new CustomExceptions("No Task match your entry. Please check");
+    }
+    @Override
+
+    public Page<TaskDto> findTasksByUserIdPaginated(List<TaskDto> tasks, Pageable pageable) {
+        int pageSize = pageable.getPageSize();
+        int currentPage = pageable.getPageNumber();
+        int startItem = currentPage * pageSize;
+        List<TaskDto> tasksList;
+
+        if (tasks.size() < startItem) {
+            tasksList = Collections.emptyList();
+        } else {
+            int toIndex = Math.min(startItem + pageSize, tasks.size());
+            tasksList = tasks.subList(startItem, toIndex);
+        }
+
+        return new PageImpl<>(tasksList, pageable, tasks.size());
     }
 }
